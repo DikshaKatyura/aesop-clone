@@ -24,7 +24,7 @@ code {
 }
 
 .swiper-wrapper {
-  align-items: baseline;
+  align-items: flex-end;
   padding-bottom: 48px;
   margin-bottom: 48px;
   /* padding-left: 80px !important;
@@ -32,8 +32,8 @@ code {
 }
 
 .swiper {
-  margin-left: 80px !important;
-  margin-right: 80px !important;
+  /* margin-left: 80px !important;
+  margin-right: 80px !important; */
 }
 .swiper-slide{
   padding: 0 2rem;

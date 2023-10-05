@@ -7,17 +7,15 @@ import "swiper/css/pagination";
 
 import { Keyboard, Scrollbar, Navigation, Pagination } from "swiper/modules";
 
-import prod1 from "../assets/products/prod1.avif";
-import prod2 from "../assets/products/prod2.webp";
-import prod3 from "../assets/products/prod3.avif";
-import prod4 from "../assets/products/prod4.webp";
-import prod5 from "../assets/products/prod5.webp";
 
 
-const Carousal = (props) => {
+
+const Carousal = ({products,block}) => {
+  console.log(products);
+  console.log(block);
     return(
-<section className="pt-[150px]">
-      <aside className="mx-20 mb-[60px] text-3xl leading-snug mb-25">A superlative selection</aside>
+<section className="pt-[150px] ml-20 mr-20">
+      {/* <aside className="mx-20 mb-[60px] text-3xl leading-snug mb-25">A superlative selection</aside> */}
       <div>
         <Swiper
           slidesPerView={1}
@@ -42,66 +40,119 @@ const Carousal = (props) => {
           className="mySwiper"
         >
           <SwiperSlide>
-            <div className="flex flex-col-reverse items-center">
-              <div className="text-center text-offBlack">
-                <h5 className="font-bold hover:underline my-2.5 leading-7 text-sm">
-                  <a href="/">Damascan Rose Facial Treatment</a>
-                </h5>
-                <div className="text-sm">
-                  Leaves skin feeling supple, nourished
+          <aside className={`text-offBlack`}>
+          <article>
+            <header className="mb-[9px] text-offBlack">
+              <p className="mb-2.5 text-sm leading-7">{block.miniTitle}</p>
+              <h2 className="text-3xl leading-snug mb-5">{block.title}</h2>
+            </header>
+            <div>
+              <p className="text-sm leading-7">
+                {block.para}
+              </p>
+              <div className="mt-[30px]">
+                <div className="w-btn">
+                  <a
+                    className="inline-block"
+                    href="/"
+                  >
+                   {block.btn}
+                  </a>
                 </div>
               </div>
-              <img src={prod1} alt="Damascan Rose Facial Treatment" />
             </div>
+          </article>
+        </aside>
           </SwiperSlide>
-          <SwiperSlide>
+          {products.map(item => {
+            return <SwiperSlide>
             <div className="flex flex-col-reverse items-center">
               <div className="text-center text-offBlack">
                 <h5 className="font-bold hover:underline my-2.5 leading-7 text-sm">
-                  <a href="/">Camellia Nut Facial Hydrating Cream</a>
-                </h5>
-                <div className="text-sm">For normal, dry or sensitive skin</div>
-              </div>
-              <img src={prod2} alt="Camellia Nut Facial Hydrating Cream" />
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="flex flex-col-reverse items-center">
-              <div className="text-center text-offBlack">
-                <h5 className="font-bold hover:underline my-2.5 leading-7 text-sm">
-                  <a href="/">Fabulous Face Oil</a>
-                </h5>
-                <div className="text-sm">A botanically based hydrating oil</div>
-              </div>
-              <img src={prod3} alt="Fabulous Face Oil" />
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="flex flex-col-reverse items-center">
-              <div className="text-center text-offBlack">
-                <h5 className="font-bold hover:underline my-2.5 leading-7 text-sm">
-                  <a href="/">Elemental Facial Barrier Cream</a>
+                  <a href="/">{item.name}</a>
                 </h5>
                 <div className="text-sm">
-                  Protects skin with sustained finish
+               {item.desc} 
                 </div>
               </div>
-              <img src={prod4} alt="Elemental Facial Barrier Cream" />
+              <img src={item.img} alt="An amber bottle of Ouranon Eau de Parfum alongside carton packaging.  " />
+            </div>
+          </SwiperSlide>
+          })}
+          {/* <SwiperSlide>
+            <div className="flex flex-col-reverse items-center">
+              <div className="text-center text-offBlack">
+                <h5 className="font-bold hover:underline my-2.5 leading-7 text-sm">
+                  <a href="/">Ouranon Eau de Parfum</a>
+                </h5>
+                <div className="text-sm">
+                Woody, spicy, resinous 
+                </div>
+              </div>
+              <img src={prod11} alt="An amber bottle of Ouranon Eau de Parfum alongside carton packaging.  " />
             </div>
           </SwiperSlide>
           <SwiperSlide>
             <div className="flex flex-col-reverse items-center">
               <div className="text-center text-offBlack">
                 <h5 className="font-bold hover:underline my-2.5 leading-7 text-sm">
-                  <a href="/">Perfect Facial Hydrating Cream</a>
+                  <a href="/">Gloam Eau de Parfum</a>
                 </h5>
-                <div className="text-sm">
-                  Sumptuous, replenishing, matte finish
-                </div>
+                <div className="text-sm">Floral, spicy, green </div>
               </div>
-              <img src={prod5} alt="Perfect Facial Hydrating Cream" />
+              <img src={prod12} alt="An amber bottle of Gloam Eau de Parfum alongside carton packaging. " />
             </div>
           </SwiperSlide>
+          <SwiperSlide>
+            <div className="flex flex-col-reverse items-center">
+              <div className="text-center text-offBlack">
+                <h5 className="font-bold hover:underline my-2.5 leading-7 text-sm">
+                  <a href="/">Eidesis Eau de Parfum </a>
+                </h5>
+                <div className="text-sm">Woody, spicy, ambery </div>
+              </div>
+              <img src={prod13} alt="An amber bottle of Gloam Eau de Parfum alongside carton packaging. " />
+            </div>
+          </SwiperSlide>
+          <SwiperSlide>
+            <div className="flex flex-col-reverse items-center">
+              <div className="text-center text-offBlack">
+                <h5 className="font-bold hover:underline my-2.5 leading-7 text-sm">
+                  <a href="/">Erémia Eau de Parfum</a>
+                </h5>
+                <div className="text-sm">
+                A green, floral, citrus fragrance
+                </div>
+              </div>
+              <img src={prod14} alt="An amber bottle of Gloam Eau de Parfum alongside carton packaging. " />
+            </div>
+          </SwiperSlide>
+          <SwiperSlide>
+            <div className="flex flex-col-reverse items-center">
+              <div className="text-center text-offBlack">
+                <h5 className="font-bold hover:underline my-2.5 leading-7 text-sm">
+                  <a href="/">Miraceti Eau de Parfum</a>
+                </h5>
+                <div className="text-sm">
+                Resinous, woody, spicy fragrance
+                </div>
+              </div>
+              <img src={prod15} alt="An amber bottle of Gloam Eau de Parfum alongside carton packaging. " />
+            </div>
+          </SwiperSlide>
+          <SwiperSlide>
+            <div className="flex flex-col-reverse items-center">
+              <div className="text-center text-offBlack">
+                <h5 className="font-bold hover:underline my-2.5 leading-7 text-sm">
+                  <a href="/">Karst Eau de Parfum</a>
+                </h5>
+                <div className="text-sm">
+                Fresh, herbaceous, marine fragrance
+                </div>
+              </div>
+              <img src={prod16} alt="An amber bottle of Gloam Eau de Parfum alongside carton packaging. " />
+            </div>
+          </SwiperSlide> */}
         </Swiper>
       </div>
     </section>

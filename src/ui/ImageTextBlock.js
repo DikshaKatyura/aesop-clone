@@ -3,12 +3,15 @@ const ImageTextBlock = (props) => {
     <section className="pt-[150px]">
       <div className={`flex flex-wrap ${props.even ? 'flex-row-reverse' :'flex-row'} box-border justify-start`}>
         <div className={` ${props.even ? 'pl-[8.3333%]' : 'pr-[8.3333%]'} w-2/3`}>
-          <img
+          {props.img && <img
             src={props.img}
             className="w-full"
             alt="A texture shot of two products together"
             loading="lazy"
-          />
+          />}
+          {props.vid && <video className="w-full" autoPlay loop muted>
+            <source src={props.vid} type="video/mp4"/>
+            </video>}
         </div>
         <aside className={` ${props.even ? 'pl-20' : 'pr-20'} w-1/3 text-offBlack`}>
           <article>
