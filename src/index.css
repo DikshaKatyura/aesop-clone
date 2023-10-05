@@ -2,17 +2,74 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --swiper-navigation-size: 16px !important;
+  --swiper-theme-color: #fffef2 !important;
+  --swiper-scrollbar-border-radius: 0;
+  --swiper-scrollbar-size: 2px;
+}
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.swiper-wrapper {
+  align-items: baseline;
+  padding-bottom: 48px;
+  margin-bottom: 48px;
+  /* padding-left: 80px !important;
+  padding-right: 80px !important; */
+}
+
+.swiper {
+  margin-left: 80px !important;
+  margin-right: 80px !important;
+}
+.swiper-slide{
+  padding: 0 2rem;
+}
+
+.swiper-scrollbar {
+  background: var(--swiper-scrollbar-bg-color, rgba(0, 0, 0, 0.2));
+  border-radius: var(--swiper-scrollbar-border-radius, 0px);
+  height: var(--swiper-scrollbar-size, 2px);
+  width: calc(100% - 2 * var(--swiper-scrollbar-sides-offset, 4%));
+  left: var(--swiper-scrollbar-sides-offset, 3%);
+}
+.swiper-scrollbar-drag {
+  border-radius: var(--swiper-scrollbar-border-radius, 0px);
+}
+
+.swiper-button-prev.swiper-button-disabled {
+  display: none;
+  transform: translate3d(80px, 0, 0);
+  transition: all 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+.swiper-button-next.swiper-button-disabled {
+  display: none;
+  transform: translate3d(80px, 0, 0);
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  width: 80px !important;
+  height: 80px !important;
+  background-color: #333;
+  top: var(--swiper-navigation-top-offset, 34%) !important;
+}
+.swiper-button-next {
+  right: var(--swiper-navigation-sides-offset, 0px) !important;
+}
+.swiper-button-prev {
+  right: var(--swiper-navigation-sides-offset, 0px) !important;
 }
