@@ -1,3 +1,8 @@
+import searchmob from '../assets/icons/searchMob.png';
+import search from '../assets/icons/search.png';
+import heart from '../assets/icons/heart.png';
+import menu from '../assets/icons/main-menu.png';
+
 const Header = () => {
   return (
     <header>
@@ -22,9 +27,10 @@ const Header = () => {
           <span className="text-lg text-offWhite ml-4">+</span>
         </button>
       </div>
-      <div className="capitalize flex justify-between h-20 items-center px-5 bg-offWhite">
+
+      <div className="hidden lg:flex capitalize justify-between h-20 items-center px-5 bg-offWhite">
         <nav>
-          <ul className="flex gap-x-4 font-semibold">
+          <ul className="flex xl:gap-x-4 gap-x-3 font-semibold items-center">
             <li>
               <a href="/" className="cursor-pointer p-1 text-sm text-offBlack">
                 skin care
@@ -75,9 +81,14 @@ const Header = () => {
                 facial appointments
               </a>
             </li>
+            <li>
+              <a href="/" className="cursor-pointer p-1 text-sm text-offBlack">
+                <img src={search} alt="search" />
+              </a>
+            </li>
           </ul>
         </nav>
-        <ul className="flex gap-x-4 font-semibold">
+        <ul className="flex lg:gap-x-4 gap-x-3 font-semibold">
           <li>
             <a href="/" className="cursor-pointer p-1 text-sm text-offBlack">
               log in
@@ -94,6 +105,17 @@ const Header = () => {
             </a>
           </li>
         </ul>
+      </div>
+      <div className="bg-transparent lg:hidden flex absolute z-[999] w-full justify-between p-5 items-center">
+        <h3 className='text-xl text-offWhite'>Aesop</h3>
+        <div>
+          <ul className='flex justify-between items-center gap-x-8 text-offWhite'>
+            <li><img src={searchmob} alt="search btn" /></li>
+            <li><img src={heart} alt="fav" /></li>
+            <li>cart</li>
+            <li><img src={menu} alt="menu" /></li>
+          </ul>
+        </div>
       </div>
     </header>
   );

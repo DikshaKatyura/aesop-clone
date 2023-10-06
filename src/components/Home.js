@@ -6,6 +6,9 @@ import Text from "./Text";
 
 import banner4 from '../assets/pictures/banner4.avif';
 import banner5 from "../assets/pictures/banner5.avif";
+import banner6 from '../assets/pictures/banner6.avif';
+import banner7 from '../assets/pictures/banner7.avif';
+import banner8 from '../assets/pictures/banner8.jpg';
 import vid1 from "../assets/videos/vid1.mp4";
 
 
@@ -23,6 +26,8 @@ import prod13 from "../assets/products/prod13.avif";
 import prod14 from "../assets/products/prod14.avif";
 import prod15 from "../assets/products/prod15.avif";
 import prod16 from "../assets/products/prod16.avif";
+
+import message from '../assets/icons/message.png';
 import Footer from "./Footer";
 
 
@@ -32,7 +37,7 @@ const { default: Header } = require("./Header");
 
 const descriptions = {
 desc1 : 'Our consultants have long combined complementary formulations to effect additional benefits for the skin. Incorporate this time-honoured practice into your regimen with our recommended bundles.',
-desc2 : '',
+desc2 : 'Our consultants are available to host you in-store and provide tailored guidance on gift purchases.',
 desc3 : 'For a well-rounded skin care regimen, Aesop Facial Appointments offer a series of treatments tailored to balance, stimulate and intensely nourish the skin.',
 }
 
@@ -119,21 +124,31 @@ const textBlock = {
   }
 }
 
+const carousal =[ 
+  {img : banner6},
+  {img : banner7},
+  {img : banner8}
+]
+
 
 const Home = () => {
   return (
     <>
       <Header />
       <SectionOne />
-      <div className="bg-offWhite">
-        <ImageTextBlock even={true} vid={vid1} title='Efficacious pairings' desc={descriptions.desc1} btn='Browse Skin Care Bundles'/>
-        <Carousal products={products.slice(7)} block={textBlock.block1}/>
+      <div className="bg-offWhite mt-96 lg:mt-0">
+        <ImageTextBlock even={true} vid={vid1} title='Efficacious pairings' desc={descriptions.desc1} btn='Browse Skin Care Bundles' />
+        <Carousal products={products.slice(7)} block={textBlock.block1} textBlock='top-[-23rem]'/>
         <ImageTextBlock img={banner4} title='Efficacious pairings' desc={descriptions.desc1} btn='Browse Skin Care Bundles'/>
-        <Carousal products={products.slice(0,7)} block={textBlock.block2}/>
+        <Carousal products={products.slice(0,7)} block={textBlock.block2} textBlock='top-[-27rem]'/>
+        <ImageTextBlock even={true} title='Store locator' desc={descriptions.desc2} btn='Find a nearby store' carousal={carousal}/>
         <ImageTextBlock img={banner5} miniTitle='Facial Appointments' title='Composure for the skin and senses' desc={descriptions.desc3} btn='Learn more'/>
         <Text />
         <Footer />
       </div>
+        <div className="h-12 w-12 bg-offBlack rounded-[50%] border border-offWhite fixed bottom-24 right-12 z-[99999] flex items-center justify-center">
+          <img src={message} alt="message btn" />
+        </div>
     </>
   );
 };
